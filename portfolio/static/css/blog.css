@@ -1,0 +1,167 @@
+/* Retro-Vintage Styling */
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f0e4d7; /* Light vintage beige */
+    color: #333; /* Dark text for light mode */
+    transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #1e1e2f; /* Richer, deeper dark background */
+    color: #d9c8b2; /* Warm off-white for better contrast */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.retro-title {
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 3px 3px #000;
+    color: #d4a017; /* Gold tone for light mode */
+}
+
+body.dark-mode .retro-title {
+    color: #f4c430; /* Warmer gold for dark mode */
+    text-shadow: 3px 3px #4a4a6a; /* Softer shadow */
+}
+
+.section {
+    margin: 40px 0;
+    padding: 20px;
+    border: 3px solid #000;
+    background-color: #fff;
+    box-shadow: 5px 5px #000;
+}
+
+body.dark-mode .section {
+    background-color: #2f2f4c; /* Muted blue-gray for dark mode */
+    border-color: #d9c8b2; /* Warm border */
+    box-shadow: 5px 5px #4a4a6a; /* Matching shadow */
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px dashed #000;
+    padding-bottom: 10px;
+}
+
+body.dark-mode h2 {
+    border-bottom-color: #d9c8b2; /* Warm dashed line */
+}
+
+.blog-post {
+    margin-bottom: 30px;
+}
+
+.blog-post img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border: 2px solid #000;
+}
+
+pre code {
+    display: block;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #000;
+}
+
+body.dark-mode pre code {
+    background-color: #3a3a5e; /* Softer dark purple */
+    border-color: #d9c8b2; /* Warm border */
+}
+
+.retro-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #d4a017; /* Gold tone */
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #000;
+    box-shadow: 3px 3px #000;
+    transition: all 0.2s ease;
+}
+
+body.dark-mode .retro-btn {
+    background-color: #f4c430; /* Warmer gold */
+    color: #000;
+    border-color: #d9c8b2; /* Warm border */
+    box-shadow: 3px 3px #4a4a6a; /* Matching shadow */
+}
+
+.retro-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px #000;
+}
+
+body.dark-mode .retro-btn:hover {
+    box-shadow: 5px 5px #4a4a6a; /* Matching hover shadow */
+}
+
+.toggle-btn.retro-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    font-size: 1rem;
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d4a017;
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #000;
+    box-shadow: 3px 3px #000;
+    transition: all 0.2s ease;
+}
+
+body.dark-mode .back-btn {
+    background-color: #f4c430;
+    color: #000;
+    border-color: #d9c8b2;
+    box-shadow: 3px 3px #4a4a6a;
+}
+
+.back-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px #000;
+}
+
+body.dark-mode .back-btn:hover {
+    box-shadow: 5px 5px #4a4a6a;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .retro-title {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .back-btn, .toggle-btn {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
+
