@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blogs</title>
+    <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        .blog-card {
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 1.5rem;
+            box-shadow: 5px 5px 0 #000;
+            display: none; /* default hidden for JS */
+        }
+        .blog-card.visible {
+            display: block;
+        }
+        .blog-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .blog-card p {
+            font-size: 0.9rem;
+            color: #333;
+        }
+        .blog-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .retro-btn {
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background-color: goldenrod;
+            border: 2px solid black;
+            font-family: monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 3px 3px 0 black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="dark-mode-toggle" class="toggle-btn retro-btn">☀️</button>
+        <a href="{% url 'home' %}" class="retro-btn back-btn">Back to Portfolio</a>
+
+        <section class="section blog-section">
+            <h1 class="retro-title">My Blogs</h1>
+
+            <div class="blog-grid" id="blog-grid">
+                {% for post in posts %}
+                <div class="blog-card{% if forloop.counter <= 4 %} visible{% endif %}">
+                    {% if post.featured_image %}
+                        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                    {% endif %}
+                    <h2><a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h2>
+                    <p>{{ post.content|striptags|truncatewords:25 }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% if posts|length > 4 %}
+            <div style="text-align:center; margin-top: 1.5rem;">
+                <button id="see-more" class="retro-btn">See More</button>
+            </div>
+            {% endif %}
+        </section>
+    </div>
+
+    <script src ="{% static 'js/blog.js' %}"></script>
+</body>
+</html>
