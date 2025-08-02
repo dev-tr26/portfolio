@@ -1,7 +1,7 @@
 /* Retro-Vintage Styling */
 body {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0e4d7; /* Light vintage beige */
     color: #333; /* Dark text for light mode */
     transition: all 0.3s ease;
