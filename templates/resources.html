@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Hub - Rudra Trangadia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+</head>
+<body>
+    <div class="app-shell">
+        <nav class="side-nav" id="side-nav">
+            <div class="brand-block">
+                <div class="brand-mark">&lt;/&gt;</div>
+                <div>
+                    <p class="brand-title">RUDRA TRANGADIA</p>
+                    {% comment %} <p class="brand-meta">Learning console</p> {% endcomment %}
+                </div>
+            </div>
+            <ul class="side-menu" id="nav-menu">
+                <li><a href="{% url 'home' %}" class="side-link">Home</a></li>
+                <li><a href="{% url 'home' %}#projects" class="side-link">Projects</a></li>
+                <li><a href="{% url 'blog_list' %}" class="side-link">Blogs</a></li>
+                <li><a href="{% url 'home' %}#research" class="side-link">Research</a></li>
+                <li><a href="{% url 'resources' %}" class="side-link active">Resources</a></li>
+                <li><a href="{% url 'home' %}#contact" class="side-link">Contact</a></li>
+            </ul>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="top-bar-actions">
+                <button class="icon-btn" type="button" id="dark-mode-toggle">☀️</button>
+            </div>
+        </nav>
+
+        <div class="main-area">
+
+            <div class="app-content">
+                <section class="section resources-hero" id="top">
+                    <div>
+                        <p class="eyebrow">Resource hub</p>
+                        <h1 class="retro-title">Playbooks & learning stacks</h1>
+                        <p class="hero-copy">A live library of papers, systems handbooks, CUDA drills, and teaching kits that I use with mentees and teams. Filter, copy, remix.</p>
+                        <div class="resource-pills">
+                            <span>Weekly refresh</span>
+                            <span>Community sourced</span>
+                            <span>Implementation ready</span>
+                        </div>
+                    </div>
+                    {% comment %} <div class="hero-card">
+                        <p class="eyebrow">Stats</p>
+                        <div class="stat-grid">
+                            <div class="stat-chip">
+                                <span class="label">Collections</span>
+                                <strong>{{ resource_collections|length }}</strong>
+                            </div>
+                            <div class="stat-chip">
+                                <span class="label">Starter kits</span>
+                                <strong>{{ starter_tracks|length }}</strong>
+                            </div>
+                            <div class="stat-chip">
+                                <span class="label">Live links</span>
+                                <strong>{{ total_links }}</strong>
+                            </div>
+                            <div class="stat-chip">
+                                <span class="label">Updates</span>
+                                <strong>Weekly</strong>
+                            </div>
+                        </div>
+                        <div class="action-row">
+                            <a href="#collections" class="retro-btn primary">Browse collections</a>
+                            <a href="#kits" class="retro-btn ghost">Starter kits</a>
+                        </div>
+                    </div> {% endcomment %}
+                </section>
+
+                <section class="section resources-grid" id="collections">
+                    <div class="section-headline">
+                        <h2>Collections</h2>
+                        {% comment %} <p>Links grouped by vibe — pick what you need and remix.</p> {% endcomment %}
+                    </div>
+                    <div class="resource-grid">
+                        {% for collection in resource_collections %}
+                        <article class="resource-card resource-card-{{ collection.tone }}" id="{{ collection.id }}">
+                            <div class="resource-card-header">
+                                <h3>{{ collection.title }}</h3>
+                                <p>{{ collection.summary }}</p>
+                            </div>
+                            <div class="resource-links">
+                                {% for link in collection.links %}
+                                <a href="{{ link.url }}" target="_blank" class="resource-link">
+                                    <span>{{ link.label }}</span>
+                                    <span>↗</span>
+                                </a>
+                                {% endfor %}
+                            </div>
+                            <div class="resource-tags">
+                                {% for tag in collection.tags %}
+                                <span>{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="section starter-kits" id="kits">
+                    <div class="section-headline">
+                        <h2>Starter kits</h2>
+                        {% comment %} <p>Drop-in plans for teams that want momentum quickly.</p> {% endcomment %}
+                    </div>
+                    <div class="toolkit-grid">
+                        {% for kit in starter_tracks %}
+                        <article class="toolkit-card">
+                            <h3>{{ kit.title }}</h3>
+                            <p>{{ kit.description }}</p>
+                            <ul>
+                                {% for item in kit.items %}
+                                <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                            <a href="{% url 'home' %}#contact" class="retro-btn ghost">Book walkthrough</a>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="section resources-cta">
+                    <div>
+                        <h2>Quick Links</h2>
+                        {% comment %} <p>Shared assets that accompany the live sessions.</p> {% endcomment %}
+                    </div>
+                    <div class="resource-quick-links">
+                        {% for link in quick_links %}
+                        <a href="{{ link.url }}" target="_blank" class="retro-btn ghost">{{ link.label }}</a>
+                        {% endfor %}
+                        {% comment %} <a href="{% url 'home' %}#contact" class="retro-btn primary">Request full access</a> {% endcomment %}
+                    </div>
+                </section>
+            </div>
+
+            <footer class="footer">
+                <p>© 2025 Rudra Trangadia | Resource Hub</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="{% static 'js/portfolio.js' %}"></script>
+</body>
+</html>
+
