@@ -35,7 +35,16 @@
                 <span></span>
             </button>
             <div class="top-bar-actions">
-                <button class="icon-btn" type="button" id="dark-mode-toggle">☀️</button>
+            <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                </svg>
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                </svg>
+            </button>
             </div>
         </nav>
 
@@ -45,8 +54,9 @@
                 <!-- Hero / Trainer card -->
                 <section class="section hero-panel" id="portfolio">
                     <div class="hero-grid">
+                        <div class="hero-grid">
                         <div class="hero-card glass">
-                            <p class="eyebrow">Trainer info</p>
+                            {% comment %} <p class="eyebrow">Trainer info</p> {% endcomment %}
                             <div class="hero-header">
                                 <div class="profile-pic">
                                     <img src="{% static 'images/profile.jpg' %}" alt="Rudra Trangadia">
@@ -73,11 +83,14 @@
                                         <a href="https://leetcode.com/DEV-TR/" target="_blank" aria-label="LeetCode" title="LeetCode">
                                             LC
                                         </a>
-                                    </div>
+                                    </div>    
                                 </div>
                             </div>
+                            {% comment %} <div class="gpu-chart">
+                                <canvas id="gpuChart"></canvas>
+                            </div> {% endcomment %}
                         </div>
-
+                    </div>        
                         {% comment %} <div class="experience-card glass sticky-side">
                             <div class="experience-header">
                                 <h3>Work experience</h3>
@@ -153,12 +166,9 @@
                             <p><strong>What keeps me curious:</strong> Deep Learning, Computer Networks, Systems engineering, parallel computing, and the invisible beauty of GPU architectures.</p>
                             <p><strong>What I work with:</strong> Python, C, C++, PyTorch, CUDA, Linux, Rust — and a habit of reading the docs 📚</p>
                             <div class="action-row">
-                                <a href="https://drive.google.com/file/d/1CP8gaVR7jOsunObx-lwnaQIRR-FwvCEe/view?usp=sharing" class="retro-btn primary" target="_blank">📄 Download Resume</a>
+                                <a href="https://drive.google.com/file/d/1jypDuWufZ3W2sF21jceX6DFZTjjnJK7w/view?usp=sharing" class="retro-btn primary" target="_blank">📄 Download Resume</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="gpu-chart">
-                        <canvas id="gpuChart"></canvas>
                     </div>
                 </section>
 
@@ -194,7 +204,9 @@
                             </div>
                         </div>
                     </div>
-                    <button id="see-more-projects" class="retro-btn primary">See More Projects</button>
+                    <div class="projects-action">
+                        <button id="see-more-projects" class="retro-btn primary">See More Projects</button>
+                    </div>
                 </section>
 
                 <!-- Blogs Preview Section -->
@@ -203,7 +215,7 @@
                         <h2>Latest Blogs 📝</h2>
                         {% comment %} <p>Fresh drops from the console.</p> {% endcomment %}
                     </div>
-                    <a href="{% url 'blog_list' %}" class="retro-btn primary">Browse all posts</a>
+                    
                     <div class="blog-layout">
                         {% comment %} <div class="blog-highlight glass">
                             <p class="eyebrow">Console digest</p>
@@ -233,6 +245,9 @@
                             </article>
                             {% endfor %}
                         </div>
+                    <div class="blogs-action">
+                        <a href="{% url 'blog_list' %}" class="retro-btn primary">Browse all posts</a>
+                    </div>
                     </div>
                 </section>
 
@@ -289,8 +304,8 @@
                             {% comment %} <a href="{% url 'resources' %}#systems-books" class="retro-btn primary">Systems Books</a> {% endcomment %}
                             {% comment %} <a href="{% url 'resources' %}#cuda-tutorials" class="retro-btn ghost">CUDA Tutorials</a> {% endcomment %}
                             <a href="{% url 'resources' %}#tech-blogs" class="retro-btn primary">Tech Blogs</a>
+                            <a href="{% url 'resources' %}" class="retro-btn primary">Open resources hub</a>
                         </div>
-                        <a href="{% url 'resources' %}" class="retro-btn primary">Open resources hub</a>
                     </div>
                 </section>
 
@@ -318,10 +333,10 @@
                     <p id="form-response" class="form-response"></p>
                 </section>
 
-                <!-- Code Snippet Animation -->
+                {% comment %} <!-- Code Snippet Animation -->
                 <div class="code-snippet">
                     <pre><code>"Life isn't a fixed dataset — don't overfit. Be curious, stay real, and keep learning."</code></pre>
-                </div>
+                </div> {% endcomment %}
             </div>
 
             <footer class="footer">

@@ -1,20 +1,61 @@
-// Dark Mode Toggle
+// // Dark Mode Toggle
+// const toggleBtn = document.getElementById('dark-mode-toggle');
+// const body = document.body;
+
+// if (toggleBtn) {
+//     if (localStorage.getItem('darkMode') === 'enabled') {
+//         body.classList.add('dark-mode');
+//         toggleBtn.textContent = '🌙';
+//     }
+
+//     toggleBtn.addEventListener('click', () => {
+//         body.classList.toggle('dark-mode');
+//         const isDarkMode = body.classList.contains('dark-mode');
+//         toggleBtn.textContent = isDarkMode ? '🌙' : '☀️';
+//         localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+//     });
+// }
+
 const toggleBtn = document.getElementById('dark-mode-toggle');
 const body = document.body;
 
-if (toggleBtn) {
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        body.classList.add('dark-mode');
-        toggleBtn.textContent = '🌙';
-    }
+const moonIcon = document.getElementById('moon-icon');
+const sunIcon = document.getElementById('sun-icon');
 
+function enableLightMode() {
+    body.classList.add('light-mode');
+
+    if (moonIcon) moonIcon.style.display = 'none';
+    if (sunIcon) sunIcon.style.display = 'block';
+
+    localStorage.setItem('theme', 'light');
+}
+
+function enableDarkMode() {
+    body.classList.remove('light-mode');
+
+    if (moonIcon) moonIcon.style.display = 'block';
+    if (sunIcon) sunIcon.style.display = 'none';
+
+    localStorage.setItem('theme', 'dark');
+}
+
+if (localStorage.getItem('theme') === 'light') {
+    enableLightMode();
+} else {
+    enableDarkMode();
+}
+
+if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDarkMode = body.classList.contains('dark-mode');
-        toggleBtn.textContent = isDarkMode ? '🌙' : '☀️';
-        localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+        if (body.classList.contains('light-mode')) {
+            enableDarkMode();
+        } else {
+            enableLightMode();
+        }
     });
 }
+
 
 // Navigation shell
 const hamburger = document.getElementById('nav-hamburger');
