@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} - Rudra Trangadia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <div class="app-shell">
+        <nav class="side-nav" id="side-nav">
+            <div class="brand-block">
+                <div class="brand-mark">&lt;/&gt;</div>
+                <div>
+                    <p class="brand-title">RUDRA TRANGADIA</p>
+                    {% comment %} <p class="brand-meta">Learning console</p> {% endcomment %}
+                </div>
+            </div>
+            <ul class="side-menu" id="nav-menu">
+                <li><a href="{% url 'home' %}" class="side-link">Home</a></li>
+                <li><a href="{% url 'home' %}#projects" class="side-link">Projects</a></li>
+                <li><a href="{% url 'blog_list' %}" class="side-link active">Blogs</a></li>
+                <li><a href="{% url 'home' %}#research" class="side-link">Research</a></li>
+                <li><a href="{% url 'resources' %}" class="side-link">Resources</a></li>
+                <li><a href="{% url 'home' %}#contact" class="side-link">Contact</a></li>
+            </ul>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="top-bar-actions">
+                <button class="icon-btn" type="button" id="dark-mode-toggle">☀️</button>
+            </div>
+        </nav>
+
+        <div class="main-area">
+
+            <div class="app-content">
+                <section class="section blog-detail-header">
+                    <div>
+                        <p class="eyebrow">Blog entry</p>
+                        <h1 class="retro-title">{{ post.title }}</h1>
+                        <p class="blog-meta">Published {{ post.created_at|date:"F d, Y" }}</p>
+                    </div>
+                    <div class="blog-detail-actions">
+                        <a href="{% url 'blog_list' %}" class="retro-btn ghost">← Back to all posts</a>
+                        {% if post.jupyter_link %}
+                        <a href="{{ post.jupyter_link }}" target="_blank" class="retro-btn primary">View notebook</a>
+                        {% endif %}
+                        {% if post.external_link %}
+                        <a href="{{ post.external_link }}" target="_blank" class="retro-btn ghost">{{ post.external_link_text|default:"Reference link" }}</a>
+                        {% endif %}
+                    </div>
+                </section>
+
+                <section class="section blog-detail">
+                    {% if post.featured_image %}
+                    <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="blog-detail-cover">
+                    {% endif %}
+                    <div class="blog-content">
+                        {{ post.content|safe }}
+                    </div>
+                </section>
+            </div>
+
+            <footer class="footer">
+                <p>© 2025 Rudra Trangadia | Blog</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="{% static 'js/portfolio.js' %}"></script>
+    <script src="{% static 'js/blog.js' %}"></script>
+</body>
+</html>
