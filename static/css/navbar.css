@@ -14,7 +14,7 @@
     --text: #111827;
     --text-muted: #6b7280;
 
-    --accent: #4a9e8a;
+    --accent: #544a9e;
     --accent-soft: rgba(74,158,138,0.12);
     --accent-hover: #3d8a77;
 
@@ -51,7 +51,7 @@ body {
 ========================= */
 
 .app-shell {
-    min-height: 100vh;
+    min-height: auto;
 }
 
 .main-area {
@@ -66,7 +66,7 @@ body {
 
 .side-nav {
     position: fixed;
-    top: 16px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: min(1280px, calc(100% - 40px));
@@ -386,6 +386,6 @@ body.light-mode .icon-btn {
 
     .main-area {
         width: calc(100% - 24px);
-        padding-top: 100px;
+        padding-top: 110px;
     }
 }
