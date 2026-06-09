@@ -23,17 +23,17 @@
                 <li><a href="{% url 'home' %}" class="side-link">Home</a></li>
                 <li><a href="{% url 'home' %}#projects" class="side-link">Projects</a></li>
                 <li><a href="{% url 'blog_list' %}" class="side-link">Blogs</a></li>
-                {% comment %} <li><a href="{% url 'home' %}#research" class="side-link">Research</a></li> {% endcomment %}
+                <li><a href="{% url 'home' %}#research" class="side-link">Research</a></li>
                 <li><a href="{% url 'resources' %}" class="side-link active">Resources</a></li>
-                {% comment %} <li><a href="{% url 'home' %}#contact" class="side-link">Contact</a></li> {% endcomment %}
+                <li><a href="{% url 'home' %}#contact" class="side-link">Contact</a></li>
             </ul>
-            {% comment %} <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu"> {% endcomment %}
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <div class="top-bar-actions">
-                {% comment %} <button class="icon-btn" type="button" id="dark-mode-toggle">☀️</button> {% endcomment %}
+                <button class="icon-btn" type="button" id="dark-mode-toggle">☀️</button>
             </div>
         </nav>
 
@@ -104,11 +104,11 @@
                     </div>
                 </section>
 
-                {% comment %} <section class="section starter-kits" id="kits">
+                <section class="section starter-kits" id="kits">
                     <div class="section-headline">
                         <h2>Starter kits</h2>
                         {% comment %} <p>Drop-in plans for teams that want momentum quickly.</p> {% endcomment %}
-                    {% comment %} </div>
+                    </div>
                     <div class="toolkit-grid">
                         {% for kit in starter_tracks %}
                         <article class="toolkit-card">
@@ -120,10 +120,10 @@
                                 {% endfor %}
                             </ul>
                             <a href="{% url 'home' %}#contact" class="retro-btn ghost">Book walkthrough</a>
-                        </article> {% endcomment %}
-                        {% comment %} {% endfor %}
+                        </article>
+                        {% endfor %}
                     </div>
-                </section> {% endcomment %}
+                </section>
                 
             </div>
 
