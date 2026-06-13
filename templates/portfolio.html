@@ -25,17 +25,17 @@
                 <li><a href="{% url 'home' %}" class="side-link active">Home</a></li>
                 <li><a href="{% url 'home' %}#projects" class="side-link">Projects</a></li>
                 <li><a href="{% url 'blog_list' %}" class="side-link">Blogs</a></li>
-                <li><a href="{% url 'home' %}#research" class="side-link">Research</a></li>
+                {% comment %} <li><a href="{% url 'home' %}#research" class="side-link">Research</a></li> {% endcomment %}
                 <li><a href="{% url 'resources' %}" class="side-link">Resources</a></li>
-                <li><a href="{% url 'home' %}#contact" class="side-link">Contact</a></li>
+                {% comment %} <li><a href="{% url 'home' %}#contact" class="side-link">Contact</a></li> {% endcomment %}
             </ul>
-            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+            {% comment %} <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu"> {% endcomment %}
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <div class="top-bar-actions">
-            <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            {% comment %} <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode"> {% endcomment %}
             <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
@@ -63,7 +63,11 @@
                                 </div>
                                 <div class="hero-info">
                                     <h1 class="retro-title">RUDRA TRANGADIA</h1>
-                                    <p class="intro">💾 Certified Alan Turing fanboy.</p>
+                                    <p class="intro"><strong>💾 Certified Alan Turing fanboy.</strong></p>
+                                    <br>
+                                    <p><strong>ML engineer who loves research, </strong> I work on Speech LLMs, TTS, ASR systems and a bit of RL and GNN</p>
+                                    <br>
+                                    <p><strong>What keeps me curious :</strong> Deep Learning, Computer Networks, Systems engineering, parallel computing, and the invisible beauty of GPU architectures.</p>
                                     <div class="social-badges">
                                         <a href="https://linkedin.com/in/rudra-trangadia-08b679241" target="_blank" aria-label="LinkedIn" title="LinkedIn">
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -83,15 +87,28 @@
                                         <a href="https://leetcode.com/DEV-TR/" target="_blank" aria-label="LeetCode" title="LeetCode">
                                             LC
                                         </a>
+                                        <a href="mailto:turing2604@gmail.com" target="_blank" aria-label="Email" title="Email">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                                            </svg>
+                                        </a>
+                                        <a href="https://codeforces.com/profile/YOUR_HANDLE" target="_blank" aria-label="Codeforces" title="Codeforces">
+                                            CF
+                                        </a>
+                                        <a href="https://medium.com/@the_turingetic_guy" target="_blank" aria-label="Medium" title="Medium">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M4 7.5c0-.4-.2-.8-.5-1L2 5V4h6l4.6 10L17 4h5v1l-1.5 1c-.3.2-.5.6-.5 1v10c0 .4.2.8.5 1l1.5 1v1h-8v-1l1.6-1c.3-.2.4-.6.4-1V8l-5 11h-1L5 8v9c0 .4.2.8.5 1L7 19v1H2v-1l1.5-1c.3-.2.5-.6.5-1V7.5z"/>
+                                            </svg>
+                                        </a>
                                     </div>    
                                 </div>
                             </div>
                             {% comment %} <div class="gpu-chart">
                                 <canvas id="gpuChart"></canvas>
-                            </div> {% endcomment %}
+                            </div> 
                         </div>
-                    </div>        
-                        {% comment %} <div class="experience-card glass sticky-side">
+                    </div>         {% endcomment %}
+                   {% comment %} <div class="experience-card glass sticky-side">
                             <div class="experience-header">
                                 <h3>Work experience</h3>
                                 <span class="pill">May 2012 — Present</span>
@@ -121,22 +138,26 @@
                             </div>
                         </div>
                     </div>
-                </section> {% endcomment %}
+                </section>  {% endcomment %}
 
-                        {% comment %} <div class="experience-card glass sticky-side">
+                        <div class="experience-card glass sticky-side">
                             <div class="experience-header">
                                 <h3>Work experience</h3>
-                                <span class="pill">May 2012 — Present</span>
+                                <span class="pill">May 2026 — July 2026</span>
                             </div>
                             <div class="experience-list">
                                 <article class="experience-item">
                                     <div>
-                                        <p class="role">Senior JavaScript Developer</p>
-                                        <p class="company">Firecracker Inc.</p>
+                                        <p class="role">ML Research Intern </p>
+                                        <p class="company">DAIICT (Dhirubhai ambani university)</p>
+                                        <p>
+                                        <div>
+                                            <p></p>
+                                        </div>
                                     </div>
                                     <p class="timeline">May 2022 — Present</p>
                                 </article>
-                                <article class="experience-item">
+                                {% comment %} <article class="experience-item">
                                     <div>
                                         <p class="role">Senior JavaScript Developer</p>
                                         <p class="company">Pro Property Maintenance</p>
@@ -149,11 +170,11 @@
                                         <p class="company">Cut Rite Lawn Care</p>
                                     </div>
                                     <p class="timeline">May 2012 — Nov 2013</p>
-                                </article>
+                                </article> {% endcomment %}
                             </div>
                         </div>
                     </div>
-                </section> {% endcomment %}
+                </section>
 
                 <!-- CV Section -->
                 <section class="section cv glassy">
@@ -161,10 +182,13 @@
                     <div class="cv-layout">
                         <img src="{% static 'images/animation.gif' %}" alt="Building animation" class="bits-gif">
                         <div class="cv-content">
-                            <p><strong>Part-time wizard, full-time nerd, always in search of great food and new places.</strong></p>
-                            <p>I'm someone who finds joy in the deep, quiet layers of tech — the kind you don't always see, all the way down to the hardware.</p>
-                            <p><strong>What keeps me curious:</strong> Deep Learning, Computer Networks, Systems engineering, parallel computing, and the invisible beauty of GPU architectures.</p>
-                            <p><strong>What I work with:</strong> Python, C, C++, PyTorch, CUDA, Linux, Rust — and a habit of reading the docs 📚</p>
+                            {% comment %} <p><strong>Part-time wizard, full-time nerd, always in search of great food and new places.</strong></p> {% endcomment %}
+                            {% comment %} <p>I'm someone who finds joy in the deep, quiet layers of tech — the kind you don't always see, all the way down to the hardware.</p> {% endcomment %}
+                            <p><strong>Tech Stack:</strong> Python, C, C++, PyTorch, CUDA, Linux, Librosa, Torchaudio, Rust — and a habit of reading the docs 📚</p>
+                            <p><strong>MLOps:</strong> Aws, Wandb, MLflow, DVC, KubeFlow, Docker, K8s</p></p>
+                            <p><strong>Backend:</strong> Django-Rest, Flask, FastAPI</p></p>
+                            <p><strong>Db:</strong> MySQL, MongoDb</p></p>
+                            <p><strong>LLM: </strong>Langchain ,Langgraph, AutoGen, HuggingFace</p>
                             <div class="action-row">
                                 <a href="https://drive.google.com/file/d/1jypDuWufZ3W2sF21jceX6DFZTjjnJK7w/view?usp=sharing" class="retro-btn primary" target="_blank">📄 Download Resume</a>
                             </div>
@@ -175,7 +199,7 @@
                 <!-- Projects Section -->
                 <section class="section projects glassy" id="projects">
                     <div class="section-headline">
-                        <h2>Projects 💻</h2>
+                        <h2>Projects </h2>
                         {% comment %} <p>Hands-on builds that keep the teaching grounded.</p> {% endcomment %}
                     </div>
                     <div class="project-grid" id="project-grid">
@@ -212,7 +236,7 @@
                 <!-- Blogs Preview Section -->
                 <section class="section glassy blog-panel" id="blogs">
                     <div class="section-headline">
-                        <h2>Latest Blogs 📝</h2>
+                        <h2>Blogs </h2>
                         {% comment %} <p>Fresh drops from the console.</p> {% endcomment %}
                     </div>
                     
@@ -270,7 +294,7 @@
                     </blockquote>
                 </section>
 
-                <!-- Research Papers Section -->
+                {% comment %} <!-- Research Papers Section -->
                 <section class="section research glassy" id="research">
                     <h2>Paper Implementations 📄</h2>
                     <div class="research-grid">
@@ -291,7 +315,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> {% endcomment %}
 
                 <!-- Resources Section -->
                 <section class="section resources glassy" id="resources">
@@ -309,7 +333,7 @@
                     </div>
                 </section>
 
-                <!-- Socials Section -->
+                {% comment %} <!-- Socials Section -->
                 <section class="section socials glassy">
                     <h2>Connect With Me</h2>
                     <div class="socials-grid">
@@ -318,9 +342,9 @@
                         <a href="https://x.com" class="retro-btn primary" target="_blank">X</a>
                         <a href="https://leetcode.com/DEV-TR/" class="retro-btn primary" target="_blank">LeetCode</a>
                     </div>
-                </section>
+                </section> {% endcomment %}
 
-                <!-- Contact Me Section -->
+                {% comment %} <!-- Contact Me Section -->
                 <section class="section contact glassy" id="contact">
                     <h2>Contact Me</h2>
                     <p>Hi! Let's chat about your project.</p>
@@ -331,7 +355,7 @@
                     </form>
 
                     <p id="form-response" class="form-response"></p>
-                </section>
+                </section> {% endcomment %}
 
                 {% comment %} <!-- Code Snippet Animation -->
                 <div class="code-snippet">
