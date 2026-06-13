@@ -65,13 +65,13 @@
                         <h2>Latest posts</h2>
                         <p>Hand-picked articles to keep your build energy up.</p>
                     </div>
-                    <div class="blog-grid" id="blog-grid">
+                    <div class="blog-list" id="blog-list">
                         {% for post in posts %}
-                        <article class="blog-card{% if forloop.counter <= 6 %} visible{% endif %}" id="post-{{ forloop.counter }}">
+                        <article class="blog-row{% if forloop.counter <= 6 %} visible{% endif %}" id="post-{{ forloop.counter }}">
                             {% if post.featured_image %}
                                 <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                             {% endif %}
-                            <div class="blog-card-body">
+                            <div class="blog-row-left">
                                 <p class="blog-meta">Published {{ post.created_at|date:"M d, Y" }}</p>
                                 <h3><a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a></h3>
                                 <p>{{ post.content|striptags|truncatewords:25 }}</p>
